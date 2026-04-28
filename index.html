@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tickets That Cheap — Book Your Appointment</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <meta name="description" content="Cheap flights, holiday packages, and city breaks. Tell us where you want to go and we'll find the best deal.">
+  <style>
+    :root{--c:#D4132A;--cd:#c00016;--cg:#D4132A40}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Outfit',-apple-system,sans-serif;background:#090909;color:#FAFAFA;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px}
+    .lp-reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+    .lp-visible{opacity:1;transform:translateY(0)}
+    .lp-d1{transition-delay:0.1s}.lp-d2{transition-delay:0.2s}.lp-d3{transition-delay:0.3s}
+    .fd{font-family:'Cormorant Garamond',Georgia,serif}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes pulse{0%,100%{box-shadow:0 0 8px var(--cg)}50%{box-shadow:0 0 20px var(--cg),0 0 40px #D4132A1a}}
+    @keyframes ring{0%{transform:scale(1);opacity:0.5}100%{transform:scale(1.4);opacity:0}}
+    @keyframes modalIn{from{opacity:0;transform:scale(0.92) translateY(12px)}to{opacity:1;transform:scale(1) translateY(0)}}
+    .anim-up{animation:fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both}
+    .anim-d1{animation-delay:0.1s}.anim-d2{animation-delay:0.2s}.anim-d3{animation-delay:0.3s}
+    #lp-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:80px;display:flex;align-items:center;justify-content:space-between;transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+    .lp-nav-scrolled{background:rgba(9,9,9,0.95)!important;backdrop-filter:blur(24px) saturate(1.2)!important;border-bottom:1px solid rgba(255,255,255,0.06)!important;height:68px!important}
+    .lp-input{width:100%;padding:15px 18px;background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:10px;color:#FAFAFA;font-family:'Outfit',sans-serif;font-size:15px;outline:none;transition:all 0.3s}
+    .lp-input:focus{border-color:var(--c);box-shadow:0 0 0 3px #D4132A1a}
+    .lp-input::placeholder{color:#333}
+    select.lp-input{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center}
+    select.lp-input option{background:#161616}
+    #success-modal{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.85);backdrop-filter:blur(16px);align-items:center;justify-content:center;padding:24px}
+    #success-modal.active{display:flex}
+    @media(max-width:900px){
+      #lp-nav{padding:0 24px}
+      .lp-nav-links{display:none!important}
+      .lp-mobile-cta{display:block!important}
+      .lp-hero-grid{grid-template-columns:1fr!important;padding:120px 24px 80px!important}
+      .lp-hero-visual{display:none!important}
+      .lp-section{padding:80px 24px!important}
+      .lp-3col{grid-template-columns:1fr!important}
+      .lp-form-card{padding:32px 24px!important}
+      .lp-2col{grid-template-columns:1fr!important}
+      .lp-trust-inner{flex-wrap:wrap;gap:24px!important}
+      .lp-footer-inner{flex-direction:column;text-align:center}
+      .lp-form-row{grid-template-columns:1fr!important}
+      .lp-hero-ctas{flex-direction:column}
+      .lp-hero-ctas a,.lp-hero-ctas button{width:100%;justify-content:center}
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="lp-nav">
+    <a href="/" style="display:flex;align-items:center;gap:14px;text-decoration:none">
+      
+      <span class="fd" style="font-size:20px;font-weight:600;color:#FAFAFA;letter-spacing:-0.01em">Tickets That Cheap</span>
+    </a>
+    <div class="lp-nav-links" style="display:flex;gap:36px;align-items:center">
+      <a href="/" style="color:#A0A0A0;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Home</a>
+      <a href="/#how" style="color:#A0A0A0;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase">How It Works</a>
+      <a href="/#services" style="color:#A0A0A0;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Categories</a>
+      <a href="/#info" style="color:#A0A0A0;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Contact</a>
+      <a href="/#booking" style="background:#D4132A;color:#fff;padding:11px 28px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase">Find Tickets</a>
+    </div>
+    <a class="lp-mobile-cta" href="/#booking" style="display:none;background:#D4132A;color:#fff;padding:11px 28px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase">Find Tickets</a>
+  </nav>
+
+  <!-- HERO -->
+  <section style="position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden">
+    <div style="position:absolute;inset:0">
+      <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&amp;fit=crop&amp;w=1920&amp;q=80" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.3) saturate(0.7)" />
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,#D4132A10 0%,transparent 60%),linear-gradient(180deg,rgba(9,9,9,0.2) 0%,rgba(9,9,9,0.5) 50%,#090909 100%)"></div>
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.012) 1px,transparent 1px);background-size:80px 80px"></div>
+    </div>
+    <div class="lp-hero-grid" style="position:relative;z-index:1;max-width:1280px;margin:0 auto;width:100%;padding:140px 48px 100px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px;align-items:center">
+      <div>
+        <div class="anim-up" style="display:inline-flex;align-items:center;gap:10px;margin-bottom:24px">
+          <span style="width:6px;height:6px;border-radius:50%;background:#D4132A;animation:pulse 2.5s ease infinite"></span>
+          <span style="font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#A0A0A0">Travel Deals</span>
+        </div>
+        <h1 class="fd anim-up anim-d1" style="font-size:clamp(44px,5.5vw,72px);font-weight:500;line-height:1.05;letter-spacing:-0.03em;margin-bottom:28px">
+          Cheap Tickets,<br><em style="font-style:italic;color:#D4132A">Anywhere</em>
+        </h1>
+        <p class="anim-up anim-d2" style="font-size:17px;color:#A0A0A0;line-height:1.75;max-width:500px;margin-bottom:44px;font-weight:300">
+          Flights, holidays, city breaks — we hunt the cheapest tickets so you don't have to. Tell us where you want to go and we'll do the rest.
+        </p>
+        <div class="anim-up anim-d3 lp-hero-ctas" style="display:flex;gap:16px">
+          <a href="#booking" style="display:inline-flex;align-items:center;gap:10px;padding:20px 40px;background:#D4132A;color:#FFFFFF;border-radius:8px;font-size:17px;font-weight:700;text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;box-shadow:0 8px 30px #D4132A33;transition:all 0.3s ease">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Find My Trip
+          </a>
+          <a href="#how" style="display:inline-flex;align-items:center;padding:18px 36px;background:transparent;color:#E8E8E8;border:1px solid rgba(255,255,255,0.12);border-radius:8px;font-size:15px;font-weight:500;text-decoration:none">Learn More</a>
+        </div>
+      </div>
+      <div class="lp-hero-visual anim-up anim-d3" style="position:relative">
+        
+          <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);box-shadow:0 40px 100px rgba(0,0,0,0.5)">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="" style="width:100%;height:380px;object-fit:cover;display:block" />
+            <div style="position:absolute;top:20px;right:20px;background:#D4132A;color:#fff;padding:8px 16px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase">Now Booking</div>
+            <div style="position:absolute;bottom:20px;left:20px;right:20px;background:rgba(9,9,9,0.85);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:14px">
+              
+              <div>
+                <strong style="font-size:15px;display:block;margin-bottom:2px">Tickets That Cheap</strong>
+                <span style="font-size:12px;color:#666">Flights &bull; Holidays &bull; City Breaks &bull; Hotels</span>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section style="padding:48px;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);background:#111">
+    <div class="lp-trust-inner" style="max-width:1280px;margin:0 auto;display:flex;justify-content:center;gap:64px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="width:44px;height:44px;border-radius:10px;background:#D4132A14;border:1px solid #D4132A1f;display:flex;align-items:center;justify-content:center;font-size:18px">🛡️</div>
+        <div><div style="font-size:14px;font-weight:500;color:#E8E8E8">Cheapest Prices Guaranteed</div><div style="font-size:12px;color:#666">We beat the search engines</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="width:44px;height:44px;border-radius:10px;background:#D4132A14;border:1px solid #D4132A1f;display:flex;align-items:center;justify-content:center;font-size:18px">⏱️</div>
+        <div><div style="font-size:14px;font-weight:500;color:#E8E8E8">Real Travel Agents</div><div style="font-size:12px;color:#666">Human help, not just an app</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="width:44px;height:44px;border-radius:10px;background:#D4132A14;border:1px solid #D4132A1f;display:flex;align-items:center;justify-content:center;font-size:18px">💬</div>
+        <div><div style="font-size:14px;font-weight:500;color:#E8E8E8">24/7 Trip Support</div><div style="font-size:12px;color:#666">We're with you the whole way</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="lp-section" style="padding:120px 48px;position:relative">
+    <div style="max-width:1000px;margin:0 auto">
+      <p class="lp-reveal" style="font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#D4132A;margin-bottom:16px">Simple Process</p>
+      <h2 class="fd lp-reveal lp-d1" style="font-size:clamp(32px,4vw,48px);font-weight:500;letter-spacing:-0.02em;margin-bottom:16px;line-height:1.1">How It Works</h2>
+      <p class="lp-reveal lp-d2" style="font-size:16px;color:#A0A0A0;max-width:500px;margin-bottom:64px;font-weight:300;line-height:1.7">Three easy steps to secure your spot at Tickets That Cheap.</p>
+      <div class="lp-3col" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+        <div class="lp-reveal" style="padding:40px 32px;background:#161616;border:1px solid rgba(255,255,255,0.06);border-radius:16px">
+          <div class="fd" style="font-size:48px;font-weight:400;color:#D4132A33;line-height:1;margin-bottom:20px">01</div>
+          <h3 style="font-size:18px;font-weight:600;margin-bottom:10px">Tell Us Where You Want To Go</h3>
+          <p style="font-size:14px;color:#A0A0A0;line-height:1.7;font-weight:300">Send us your destination, dates, and how many travelers — flights, packages, city breaks, or anywhere else.</p>
+        </div>
+        <div class="lp-reveal lp-d1" style="padding:40px 32px;background:#161616;border:1px solid rgba(255,255,255,0.06);border-radius:16px">
+          <div class="fd" style="font-size:48px;font-weight:400;color:#D4132A33;line-height:1;margin-bottom:20px">02</div>
+          <h3 style="font-size:18px;font-weight:600;margin-bottom:10px">We Find the Cheapest Tickets</h3>
+          <p style="font-size:14px;color:#A0A0A0;line-height:1.7;font-weight:300">Our travel agents hunt the best prices across every airline and operator — then send you the top picks.</p>
+        </div>
+        <div class="lp-reveal lp-d2" style="padding:40px 32px;background:#161616;border:1px solid rgba(255,255,255,0.06);border-radius:16px">
+          <div class="fd" style="font-size:48px;font-weight:400;color:#D4132A33;line-height:1;margin-bottom:20px">03</div>
+          <h3 style="font-size:18px;font-weight:600;margin-bottom:10px">Book in One Click</h3>
+          <p style="font-size:14px;color:#A0A0A0;line-height:1.7;font-weight:300">Pick the deal you like and Tickets That Cheap books it for you — confirmation lands in your inbox same day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+    <section id="services" class="lp-section" style="padding:120px 48px;background:#111">
+      <div style="max-width:1280px;margin:0 auto">
+        <p class="lp-reveal" style="font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#D4132A;margin-bottom:16px">What We Find</p>
+        <h2 class="fd lp-reveal lp-d1" style="font-size:clamp(32px,4vw,48px);font-weight:500;letter-spacing:-0.02em;margin-bottom:16px;line-height:1.1">Where Do You Want To Go?</h2>
+        <p class="lp-reveal lp-d2" style="font-size:16px;color:#A0A0A0;max-width:500px;margin-bottom:64px;font-weight:300;line-height:1.7">Cheap flights, holiday packages, and city breaks — we find the best deals so you don't have to.</p>
+        <div class="lp-3col" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+          
+            <div class="lp-reveal" style="background:#161616;border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:40px 32px;text-align:center">
+              <div style="font-size:48px;margin-bottom:20px">✈️</div>
+              <p style="font-size:18px;font-weight:600;margin-bottom:10px">Flights</p>
+              <p style="font-size:14px;color:#A0A0A0;line-height:1.7;font-weight:300">Cheap flights to every major destination — economy, premium, and last-minute deals.</p>
+            </div>
+          
+            <div class="lp-reveal lp-d1" style="background:#161616;border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:40px 32px;text-align:center">
+              <div style="font-size:48px;margin-bottom:20px">🏝️</div>
+              <p style="font-size:18px;font-weight:600;margin-bottom:10px">Holiday Packages</p>
+              <p style="font-size:14px;color:#A0A0A0;line-height:1.7;font-weight:300">All-inclusive trips, family holidays, and getaways with flights + hotel bundled.</p>
+            </div>
+          
+            <div class="lp-reveal lp-d2" style="background:#161616;border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:40px 32px;text-align:center">
+              <div style="font-size:48px;margin-bottom:20px">🌆</div>
+              <p style="font-size:18px;font-weight:600;margin-bottom:10px">City Breaks</p>
+              <p style="font-size:14px;color:#A0A0A0;line-height:1.7;font-weight:300">Weekend escapes and short trips to top cities, hand-picked for value.</p>
+            </div>
+          
+        </div>
+      </div>
+    </section>
+  
+
+  <!-- BOOKING FORM -->
+  <section id="booking" class="lp-section" style="padding:120px 48px;position:relative">
+    <div style="max-width:680px;margin:0 auto">
+      <p class="lp-reveal" style="font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#D4132A;margin-bottom:16px">Get Started</p>
+      <h2 class="fd lp-reveal lp-d1" style="font-size:clamp(36px,5vw,56px);font-weight:500;letter-spacing:-0.02em;margin-bottom:16px;line-height:1.1;color:#FFFFFF">Get a Travel Quote</h2>
+      <p class="lp-reveal lp-d2" style="font-size:16px;color:#A0A0A0;max-width:500px;margin-bottom:64px;font-weight:300;line-height:1.7">Fill in your details and we'll handle the rest.</p>
+
+      <form id="lp-form" class="lp-form-card lp-reveal lp-d3" onsubmit="handleSubmit(event)" style="background:#161616;border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:52px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent 0%,#D4132A 50%,transparent 100%)"></div>
+
+        <div class="lp-form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;color:#999;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">First Name</label>
+            <input class="lp-input" type="text" name="first_name" placeholder="John" />
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;color:#999;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">Last Name</label>
+            <input class="lp-input" type="text" name="last_name" placeholder="Smith" />
+          </div>
+        </div>
+        <div class="lp-form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;color:#999;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">Email</label>
+            <input class="lp-input" type="email" name="email" placeholder="john@example.com" />
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;color:#999;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">Phone</label>
+            <input class="lp-input" type="tel" name="phone" placeholder="(555) 000-0000" />
+          </div>
+        </div>
+        <div style="margin-bottom:20px">
+          <label style="display:block;font-size:12px;font-weight:600;color:#999;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">What can we help you with?</label>
+          <select class="lp-input" name="service_type">
+            <option value="" disabled selected>Select an option</option>
+            <option>Flights Only</option>
+            <option>Holiday Package (Flight + Hotel)</option>
+            <option>City Break</option>
+            <option>Hotel Only</option>
+            <option>Cruise</option>
+            <option>Custom Trip / Multi-Stop</option>
+            <option>Group Booking (10+)</option>
+            <option>General Question</option>
+          </select>
+        </div>
+        <div class="lp-form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;color:#999;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">Preferred Date</label>
+            <input class="lp-input" type="date" name="preferred_date" min="2026-04-27" onchange="handleDateChange(this)" />
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;color:#999;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">Preferred Time</label>
+            <select class="lp-input" name="preferred_time">
+              <option value="" disabled selected>Select a time</option>
+              <option>5:00 AM</option><option>5:30 AM</option><option>6:00 AM</option><option>6:30 AM</option><option>7:00 AM</option><option>7:30 AM</option><option>8:00 AM</option><option>8:30 AM</option><option>9:00 AM</option><option>9:30 AM</option><option>10:00 AM</option><option>10:30 AM</option><option>11:00 AM</option><option>11:30 AM</option><option>12:00 PM</option><option>12:30 PM</option><option>1:00 PM</option><option>1:30 PM</option><option>2:00 PM</option><option>2:30 PM</option><option>3:00 PM</option><option>3:30 PM</option><option>4:00 PM</option><option>4:30 PM</option><option>5:00 PM</option><option>5:30 PM</option><option>6:00 PM</option><option>6:30 PM</option><option>7:00 PM</option><option>7:30 PM</option><option>8:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-bottom:20px">
+          <label style="display:block;font-size:12px;font-weight:600;color:#999;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">Additional Details</label>
+          <textarea class="lp-input" name="details" placeholder="Tell us your destination, dates, number of travelers, and any preferences (direct flights, hotel rating, budget, etc.)…" style="min-height:100px;resize:vertical"></textarea>
+        </div>
+
+        
+    <div style="margin-top:28px;padding:24px;border:1px solid rgba(255,255,255,0.06);border-radius:12px;background:rgba(255,255,255,0.015)">
+      <p style="font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#E8E8E8;margin-bottom:14px">SMS Communications Consent</p>
+      <p style="font-size:15px;line-height:1.75;color:#999;margin-bottom:14px">By providing your phone number, you consent to receive recurring text messages from Airtime Media LLC (DBA Tickets That Cheap), including booking confirmations, trip itinerary updates, travel reminders, and account-related notifications. Message frequency may vary. Message and data rates may apply. Reply HELP for help. Reply STOP to unsubscribe. Consent is not a condition of purchase. No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</p>
+      <p style="font-size:13px;margin-bottom:18px">
+        <a href="/privacy-policy" style="color:#D4132A;text-decoration:none;font-weight:500">Privacy Policy</a>
+        |
+        <a href="/terms-and-conditions" style="color:#D4132A;text-decoration:none;font-weight:500">Terms &amp; Conditions</a>
+      </p>
+      <div style="display:flex;gap:14px;align-items:flex-start;padding-top:18px;border-top:1px solid rgba(255,255,255,0.06)">
+        <input id="sms-consent-checkbox" type="checkbox" style="margin-top:3px;width:18px;height:18px;accent-color:#D4132A;flex-shrink:0;cursor:pointer" />
+        <label style="font-size:15px;line-height:1.65;color:#B0B0B0;cursor:pointer">
+          I agree to receive recurring text messages from Tickets That Cheap at the number provided. Message frequency may vary. Message and data rates may apply. Reply HELP for help. Reply STOP to unsubscribe.
+        </label>
+      </div>
+    </div>
+  
+
+        <button type="submit" id="submit-btn" style="margin-top:32px;width:100%;padding:22px;background:#D4132A;color:#FFFFFF;border:none;border-radius:10px;font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;cursor:pointer;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.3s ease;box-shadow:0 8px 30px #D4132A33">
+          Find Me a Deal
+        </button>
+        <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:20px">
+          <a href="/privacy-policy" style="font-size:12px;color:#333;text-decoration:none">Privacy Policy</a>
+          <span style="color:#333;font-size:12px">|</span>
+          <a href="/terms-and-conditions" style="font-size:12px;color:#333;text-decoration:none">Terms &amp; Conditions</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- DEALER INFO -->
+  <section id="info" class="lp-section" style="padding:120px 48px;background:#111">
+    <div class="lp-2col" style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+      <div>
+        <p class="lp-reveal" style="font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#D4132A;margin-bottom:16px">Travel Office</p>
+        <h2 class="fd lp-reveal lp-d1" style="font-size:clamp(32px,4vw,48px);font-weight:500;letter-spacing:-0.02em;margin-bottom:40px;line-height:1.1">Tickets That Cheap</h2>
+        
+        
+          <div class="lp-reveal lp-d3" style="display:flex;gap:18px;align-items:flex-start;margin-bottom:32px">
+            <div style="width:48px;height:48px;border-radius:12px;background:#D4132A0f;border:1px solid #D4132A1a;display:flex;align-items:center;justify-content:center;font-size:20px">📞</div>
+            <div>
+              <p style="font-size:11px;color:#333;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;font-weight:600">Bookings</p>
+              <p style="font-size:16px;font-weight:500"><a href="tel:15555550100" style="color:#E8E8E8;text-decoration:none">+1 (555) 555-0100</a></p>
+            </div>
+          </div>
+        
+      </div>
+      <div class="lp-reveal" style="background:#161616;border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:36px">
+        <h3 class="fd" style="font-size:24px;font-weight:500;margin-bottom:24px">Working Hours</h3>
+        
+    <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px">
+      <span style="color:#666;font-weight:400;text-transform:capitalize">Monday</span>
+      <span style="font-weight:500;color:#E8E8E8">9:00 AM - 8:00 PM</span>
+    </div>
+  
+    <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px">
+      <span style="color:#666;font-weight:400;text-transform:capitalize">Tuesday</span>
+      <span style="font-weight:500;color:#E8E8E8">9:00 AM - 8:00 PM</span>
+    </div>
+  
+    <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px">
+      <span style="color:#666;font-weight:400;text-transform:capitalize">Wednesday</span>
+      <span style="font-weight:500;color:#E8E8E8">9:00 AM - 8:00 PM</span>
+    </div>
+  
+    <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px">
+      <span style="color:#666;font-weight:400;text-transform:capitalize">Thursday</span>
+      <span style="font-weight:500;color:#E8E8E8">9:00 AM - 8:00 PM</span>
+    </div>
+  
+    <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px">
+      <span style="color:#666;font-weight:400;text-transform:capitalize">Friday</span>
+      <span style="font-weight:500;color:#E8E8E8">9:00 AM - 8:00 PM</span>
+    </div>
+  
+    <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px">
+      <span style="color:#666;font-weight:400;text-transform:capitalize">Saturday</span>
+      <span style="font-weight:500;color:#E8E8E8">10:00 AM - 6:00 PM</span>
+    </div>
+  
+    <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px">
+      <span style="color:#666;font-weight:400;text-transform:capitalize">Sunday</span>
+      <span style="font-weight:500;color:#E8E8E8">10:00 AM - 6:00 PM</span>
+    </div>
+  
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding:40px 48px;border-top:1px solid rgba(255,255,255,0.06)">
+    <div class="lp-footer-inner" style="max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+      <span style="font-size:13px;color:#333">&copy; 2026 Tickets That Cheap. All rights reserved.</span>
+      <div style="display:flex;gap:28px">
+        <a href="/privacy-policy" style="font-size:12px;color:#666;text-decoration:none">Privacy Policy</a>
+        <a href="/terms-and-conditions" style="font-size:12px;color:#666;text-decoration:none">Terms &amp; Conditions</a>
+      </div>
+      <span style="font-size:11px;color:#333">Powered by <a href="https://visquanta.com" target="_blank" rel="noopener" style="color:#666;text-decoration:none;font-weight:600">Visquanta</a></span>
+    </div>
+  </footer>
+
+  <!-- SUCCESS MODAL -->
+  <div id="success-modal" onclick="if(event.target===this)closeModal()">
+    <div style="background:#161616;border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:48px 44px 40px;max-width:420px;width:100%;text-align:center;animation:modalIn 0.4s cubic-bezier(0.34,1.56,0.64,1);box-shadow:0 32px 100px rgba(0,0,0,0.6);position:relative">
+      <button onclick="closeModal()" style="position:absolute;top:18px;right:18px;background:none;border:none;color:#333;font-size:24px;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:8px">&times;</button>
+      <div style="position:relative;width:72px;height:72px;margin:0 auto 28px">
+        <div style="position:absolute;inset:-6px;border-radius:50%;border:1.5px solid #34D399;animation:ring 2s ease infinite"></div>
+        <div style="width:72px;height:72px;border-radius:50%;background:rgba(52,211,153,0.15);border:1.5px solid #34D399;display:flex;align-items:center;justify-content:center">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <h3 class="fd" style="font-size:28px;font-weight:500;margin-bottom:10px">You're All Set!</h3>
+      <p style="color:#A0A0A0;font-size:14px;line-height:1.65;margin-bottom:24px;font-weight:300">Your appointment request has been submitted successfully.</p>
+      <div style="display:flex;align-items:flex-start;gap:14px;background:#D4132A0d;border:1px solid #D4132A1a;border-radius:12px;padding:16px 18px;text-align:left;margin-bottom:24px">
+        <div style="width:40px;height:40px;border-radius:10px;background:#D4132A1a;display:flex;align-items:center;justify-content:center;color:#D4132A;flex-shrink:0">💬</div>
+        <div>
+          <strong style="display:block;font-size:13px;margin-bottom:3px">Check your phone</strong>
+          <span style="font-size:12px;color:#666;line-height:1.5">You'll receive an SMS confirmation shortly with your appointment details.</span>
+        </div>
+      </div>
+      <button onclick="closeModal()" style="background:#D4132A;color:#fff;border:none;padding:14px 56px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;cursor:pointer">Done</button>
+    </div>
+  </div>
+
+  <script>
+    function initReveal() {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('lp-visible'); });
+      }, {threshold: 0.1, rootMargin: '0px 0px -60px 0px'});
+      document.querySelectorAll('.lp-reveal').forEach(function(el) { obs.observe(el); });
+    }
+    window.addEventListener('scroll', function() {
+      var nav = document.getElementById('lp-nav');
+      if (nav) nav.classList.toggle('lp-nav-scrolled', window.scrollY > 50);
+    });
+    function handleDateChange(input) {}
+    function handleSubmit(e) {
+      e.preventDefault();
+      var btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.style.opacity = '0.5';
+      btn.textContent = 'Submitting...';
+      setTimeout(function() {
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.textContent = 'Find Me a Deal';
+        document.getElementById('success-modal').classList.add('active');
+      }, 1500);
+    }
+    function closeModal() {
+      document.getElementById('success-modal').classList.remove('active');
+      document.getElementById('lp-form').reset();
+    }
+    initReveal();
+  </script>
+</body>
+</html>

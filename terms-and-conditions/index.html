@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Terms and Conditions | Tickets That Cheap</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{--c:#D4132A;--cd:#c00016;--cg:#D4132A40}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Outfit',-apple-system,sans-serif;background:#090909;color:#FAFAFA;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px}
+    .lp-reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+    .lp-visible{opacity:1;transform:translateY(0)}
+    .lp-d1{transition-delay:0.1s}.lp-d2{transition-delay:0.2s}.lp-d3{transition-delay:0.3s}
+    .fd{font-family:'Cormorant Garamond',Georgia,serif}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes pulse{0%,100%{box-shadow:0 0 8px var(--cg)}50%{box-shadow:0 0 20px var(--cg),0 0 40px #D4132A1a}}
+    @keyframes ring{0%{transform:scale(1);opacity:0.5}100%{transform:scale(1.4);opacity:0}}
+    @keyframes modalIn{from{opacity:0;transform:scale(0.92) translateY(12px)}to{opacity:1;transform:scale(1) translateY(0)}}
+    .anim-up{animation:fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both}
+    .anim-d1{animation-delay:0.1s}.anim-d2{animation-delay:0.2s}.anim-d3{animation-delay:0.3s}
+    #lp-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:80px;display:flex;align-items:center;justify-content:space-between;transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+    .lp-nav-scrolled{background:rgba(9,9,9,0.95)!important;backdrop-filter:blur(24px) saturate(1.2)!important;border-bottom:1px solid rgba(255,255,255,0.06)!important;height:68px!important}
+    .lp-input{width:100%;padding:15px 18px;background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:10px;color:#FAFAFA;font-family:'Outfit',sans-serif;font-size:15px;outline:none;transition:all 0.3s}
+    .lp-input:focus{border-color:var(--c);box-shadow:0 0 0 3px #D4132A1a}
+    .lp-input::placeholder{color:#333}
+    select.lp-input{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center}
+    select.lp-input option{background:#161616}
+    #success-modal{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.85);backdrop-filter:blur(16px);align-items:center;justify-content:center;padding:24px}
+    #success-modal.active{display:flex}
+    @media(max-width:900px){
+      #lp-nav{padding:0 24px}
+      .lp-nav-links{display:none!important}
+      .lp-mobile-cta{display:block!important}
+      .lp-hero-grid{grid-template-columns:1fr!important;padding:120px 24px 80px!important}
+      .lp-hero-visual{display:none!important}
+      .lp-section{padding:80px 24px!important}
+      .lp-3col{grid-template-columns:1fr!important}
+      .lp-form-card{padding:32px 24px!important}
+      .lp-2col{grid-template-columns:1fr!important}
+      .lp-trust-inner{flex-wrap:wrap;gap:24px!important}
+      .lp-footer-inner{flex-direction:column;text-align:center}
+      .lp-form-row{grid-template-columns:1fr!important}
+      .lp-hero-ctas{flex-direction:column}
+      .lp-hero-ctas a,.lp-hero-ctas button{width:100%;justify-content:center}
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="lp-nav">
+    <a href="/" style="display:flex;align-items:center;gap:14px;text-decoration:none">
+      
+      <span class="fd" style="font-size:20px;font-weight:600;color:#FAFAFA;letter-spacing:-0.01em">Tickets That Cheap</span>
+    </a>
+    <div class="lp-nav-links" style="display:flex;gap:36px;align-items:center">
+      <a href="/" style="color:#A0A0A0;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Home</a>
+      <a href="/#how" style="color:#A0A0A0;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase">How It Works</a>
+      <a href="/#services" style="color:#A0A0A0;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Categories</a>
+      <a href="/#info" style="color:#A0A0A0;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Contact</a>
+      <a href="/#booking" style="background:#D4132A;color:#fff;padding:11px 28px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase">Find Tickets</a>
+    </div>
+    <a class="lp-mobile-cta" href="/#booking" style="display:none;background:#D4132A;color:#fff;padding:11px 28px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase">Find Tickets</a>
+  </nav>
+
+  <div style="padding:140px 48px 100px;max-width:720px;margin:0 auto;animation:fadeUp 0.5s cubic-bezier(0.16,1,0.3,1)">
+    <a href="/" style="display:inline-flex;align-items:center;gap:8px;color:#D4132A;text-decoration:none;font-size:13px;font-weight:500;margin-bottom:40px">&larr; Back to Home</a>
+    <h1 class="fd" style="font-size:40px;font-weight:500;margin-bottom:8px;letter-spacing:-0.02em">Terms and Conditions</h1>
+    <p style="font-size:13px;color:#333;margin-bottom:48px">Effective Date: Sep 15, 2025</p>
+    <ol style="list-style:decimal;padding-left:20px;font-size:14px;color:#666;line-height:1.85;font-weight:300">
+      <li style="margin-bottom:12px">This SMS program sends recurring automated booking confirmations, trip itinerary updates, travel reminders, and other account-related updates from Airtime Media LLC (DBA Tickets That Cheap) (website: ticketsthatcheap.visquanta.com) to customers who have opted in. No promotional or marketing messages are sent.</li>
+      <li style="margin-bottom:12px">You can cancel at any time by replying STOP.</li>
+      <li style="margin-bottom:12px">If you experience issues, reply HELP for assistance or call +1 (555) 555-0100 or email hello@ticketsthatcheap.com.</li>
+      <li style="margin-bottom:12px">Carriers are not liable for delayed or undelivered messages.</li>
+      <li style="margin-bottom:12px">Message frequency may vary. Message and data rates may apply.</li>
+      <li style="margin-bottom:12px">For privacy-related inquiries, please refer to our <a href="/privacy-policy" style="color:#D4132A">Privacy Policy</a>.</li>
+    </ol>
+  </div>
+
+  <footer style="padding:40px 48px;border-top:1px solid rgba(255,255,255,0.06)">
+    <div class="lp-footer-inner" style="max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+      <span style="font-size:13px;color:#333">&copy; 2026 Tickets That Cheap. All rights reserved.</span>
+      <div style="display:flex;gap:28px">
+        <a href="/privacy-policy" style="font-size:12px;color:#666;text-decoration:none">Privacy Policy</a>
+        <a href="/terms-and-conditions" style="font-size:12px;color:#666;text-decoration:none">Terms &amp; Conditions</a>
+      </div>
+      <span style="font-size:11px;color:#333">Powered by <a href="https://visquanta.com" target="_blank" rel="noopener" style="color:#666;text-decoration:none;font-weight:600">Visquanta</a></span>
+    </div>
+  </footer>
+  <script>
+    function initReveal() {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('lp-visible'); });
+      }, {threshold: 0.1, rootMargin: '0px 0px -60px 0px'});
+      document.querySelectorAll('.lp-reveal').forEach(function(el) { obs.observe(el); });
+    }
+    window.addEventListener('scroll', function() {
+      var nav = document.getElementById('lp-nav');
+      if (nav) nav.classList.toggle('lp-nav-scrolled', window.scrollY > 50);
+    });
+    initReveal();
+  </script>
+</body>
+</html>
